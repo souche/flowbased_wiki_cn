@@ -1,5 +1,3 @@
-# Terminology
-
 Common terms in the flow-based world and their explanation. Below each paragraph represents a term. First it is given in bold as proposed by Morrison's book (if available), other versions are given in braces. Terms may link to articles with detailed description of principles behind them.
 
 * **Capacity** - max. number of information packets that can be buffered within a connection at a time.
