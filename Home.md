@@ -6,9 +6,9 @@ The goal of this project is to create a compact specification for Flow-based par
 
 1. [Definition of Flow-based programming](Definition)
 2. [Terminology](Terminology)
-3. [Basic principles of FBP systems](BasicFeatures)
-4. [Classification](Classification)
-5. [Advanced features of FBP systems](AdvancedFeatures)
+3. [Basic concepts of FBP systems](Concepts)
+4. [Advanced features of FBP systems](AdvancedFeatures)
+5. [Classification](Classification)
 6. [Universal FBP communication protocol](Protocol)
 7. [Links](Links)
 
