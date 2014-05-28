@@ -1,16 +1,16 @@
-# Flow Based Programming specification
+# Flow Based Programming
 
 The goal of this project is to create a compact specification for Flow-based paradigm and its terminology, help FBP researchers to communicate more effectively and give the newcomers a quick reference to the flow-based world.
 
 ## Table of Contents
 
-1. [Definition of Flow-based programming](definition)
-2. [Terminology](terms)
-3. [Basic principles of FBP systems](basic)
-4. [Classification](classification)
-5. [Advanced features of FBP systems](advanced)
-6. [Universal FBP communication protocol](protocol)
-7. [Links](links)
+1. [Definition of Flow-based programming](Definition)
+2. [Terminology](Terms)
+3. [Basic principles of FBP systems](BasicFeatures)
+4. [Classification](Classification)
+5. [Advanced features of FBP systems](AdvancedFeatures)
+6. [Universal FBP communication protocol](Protocol)
+7. [Links](Links)
 
 ## Other sources of documentation
 
