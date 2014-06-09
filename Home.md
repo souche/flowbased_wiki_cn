@@ -17,6 +17,7 @@ The goal of this project is to create a compact specification for Flow-based par
 * [Flow-based programming by J Paul Morrison](http://jpaulmorrison.com/fbp/)
 * [FBP Wiki by JPM](http://www.jpaulmorrison.com/cgi-bin/wiki.pl)
 * [Flow Based Ideas Blog](http://flowbased.tk)
-* [Goougle Group / Mailing list](http://groups.google.com/group/flow-based-programming)
+* [Dataflow and Reactive Programming Systems by Matt Carkci](http://dataflowbook.com/cms/?page_id=432)
+* [Google Group / Mailing list](http://groups.google.com/group/flow-based-programming)
 * [NoFlo documentation](http://noflojs.org/documentation)
 * [Wikipedia](http://en.wikipedia.org/wiki/Flow-based_programming)
