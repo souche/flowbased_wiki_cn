@@ -2,7 +2,7 @@ This article introduces the basic concepts that any FBP implementation provides.
 
 ## Components
 
-Components are the building blocks in Flow-based programming. This section covers simple components which are usually written as classes, functions or small programs in conventional programming languages. For composite components see [Graphs section](Concepts#Graphs) below.
+Components are the building blocks in Flow-based programming. This section covers elementary components which are usually written as classes, functions or small programs in conventional programming languages. For composite components see [Graphs section](Concepts#Graphs) below.
 
 ### Ports
 
@@ -28,14 +28,6 @@ TODO: add description here
 
 TODO: add description here
 
-## Connections
-
-TODO: add description here
-
-## Graphs
-
-TODO: add description here
-
 ## Information packets
 
 TODO: add description here
@@ -43,3 +35,33 @@ TODO: add description here
 ### Initial information packets
 
 TODO: add description here
+
+## Connections
+
+TODO: add description here
+
+### Capacity
+
+### Merging
+
+TODO: add description here
+
+## Graphs
+
+TODO: add description here
+
+### External ports
+
+TODO: add description here
+
+### Feedback loops
+
+TODO: add description here
+
+## Flow features
+
+This section covers aspects of how applications work in general.
+
+### Resident and non-resident processes
+
+TODO: add description here (in the FBP book it is called "Loopers" and "Non-loopers")
