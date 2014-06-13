@@ -61,3 +61,5 @@ Recursive graphs can refer to and embed themselves, making recursive data proces
 ## Dynamic structure
 
 Initially FBP applications are static: once an application graph is started, it cannot add or remove nodes. Some implementations allow changing application structure at run-time, making it more flexible on one hand and less reliable on the other.
+
+Allowing modifications to the running graph can be useful when developing iteratively.
