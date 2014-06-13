@@ -2,7 +2,9 @@
 
 Flow-based programming considers an application as a set of components ("black boxes") connected through ports. The representation is a directed graph consisting of components as nodes and connections as edges. For application developers, components will normally be treated as black boxes, but they can be whiteboxed if the developer needs to create a new component (usually done using a conventional, textual, programming language), or if the component is implemented as a subgraph.  In the latter case, the user can move between different levels of the graph. 
 
-The general approach in FBP is to conceptualize a program as a series of streams and substreams that flow through a series of connected components. Parallelism and concurrency are enabled by communicating with Information Packets (dumb data) and avoiding shared memory problems. Visual programming in this context is about connecting textual components and/or graphs in a bi-dimensional representation, which takes advantage of humans' pattern recognition abilities and visual styles of thinking. Textual programming is still available at the component level, and, for simple applications, at the network level.
+The general approach in FBP is to conceptualize a program as a series of streams and substreams that flow through a series of connected components. Parallelism and concurrency are enabled by communicating via Information Packets ("passive" data) - shared memory problems are avoided by the rule that an Information Packet may only be "owned" (directly or indirectly) by a single process at a time.
+
+Visual programming in this context is about connecting textual components and/or graphs in a bi-dimensional representation, which takes advantage of humans' pattern recognition abilities and visual styles of thinking. Textual programming is still available at the component level, and, for simple applications, at the network level.
 
 The main motivators are code reuse, testability, concurrency and maintainability.
 
