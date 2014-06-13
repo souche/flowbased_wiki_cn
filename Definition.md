@@ -14,6 +14,7 @@ FBP is often confused with Dataflow programming, but in fact it is a subset of D
  - Components can be stateful.
  - Components can have multiple inputs or outputs.
  - The application is a graph rather than a tree. Cyclic connections (feedback loops) are allowed.
+ - Connections can be merged in the graph, implicating that packets from different arcs arrive at the input port in FIFO order. Connections should be split explicitly via a component with multiple output ports because of the variety of splitting strategies and the explicit IP ownership rule.
  - Connections are implemented as bounded buffers with FIFO order and capacity from 0 to a number limited by implementation.
  - Data can own data. A packet can have sub packets and components do not need to be aware of the owned data. Tree structures and dictionaries can be created like this.
 
