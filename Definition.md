@@ -23,5 +23,6 @@ FBP is often confused with Dataflow programming, but in fact it is a subset of D
  - Connections can be merged in the graph, implicating that packets from different arcs arrive at the input port in FIFO order. Connections should be split explicitly via a component because of the variety of splitting strategies and the explicit IP ownership rule.
  - Connections are implemented as bounded buffers with FIFO order and capacity from 0 to a number limited by implementation.
  - Data can own data. A packet can have sub packets and components do not need to be aware of the owned data. Tree structures and dictionaries can be created like this.
+ - Given that FBP is component-oriented, there has to be a way in the network definition to provide parameters to component instances.  In current FBP implementations, this is usually done by associating a data value with a particular input port.  Actual implementation details vary between FBP versions.
 
 See [Concepts](Concepts) for further details.
