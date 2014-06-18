@@ -8,13 +8,19 @@ Components are the building blocks in Flow-based programming. This section cover
 
 A Process is an instance of a Component living in a Graph. The system should handle processes in the form of coroutines, threads or a similar form of concurrency, or at least provide the illusion of it to the graph designer. They should only be able to access their own internal state and ports but not much else about the graph itself and other processes.
 
+### Connections
+
+Processes communicate via connections, which the processes access by means of "ports". In "classical" FBP, connections are implemented via bounded buffers. 
+
 ### Ports
 
-Ports are the way processes communicate with each other, they are named and indexed ,if the port is an Array Port. A Process can send and recieve from any of the ports but should restrict itself to only a read or write operation at the same time.
+Ports are the points of contact between processes and connections. They are named, and may also be indexed if the port is an Array Port. The port name may be viewed as a contract between the component code and the network specification.  A Process can send and receive from any of the ports but should restrict itself to only a read or write operation at the same time.
 
 #### Input ports
 
-They provide a READ or RECEIVE functionality to dequeue messages from the buffer, and require an index in the case of Array Ports. Other features like obtaining the buffer load or which indexes have incoming packets in the case of array ports are desirable for simplifying the design and implementation of some components. An example of this would be a load balancer component or an event handler.
+They provide a READ or RECEIVE functionality to dequeue messages from the buffer, and require an index in the case of Array Ports. Other features like obtaining the buffer load or which indexes have incoming packets in the case of array ports are desirable for simplifying the design and implementation of some components. An example of this would be an event handler.
+
+In "classical" FBP, connections correspond 1:1 to (non-IIP) input ports or input array port elements.  If a connection becomes empty, the process being fed by that connection is suspended until more data IPs arrive (in "classical" FBP, this can only be one process).
 
 #### Output ports
 
