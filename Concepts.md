@@ -14,15 +14,17 @@ Processes communicate via connections, which the processes access by means of "p
 
 ### Ports
 
-Ports are the points of contact between processes and connections. They are named, and may also be indexed if the port is an Array Port. The port name may be viewed as a contract between the component code and the network specification.  A Process can send and receive from any of the ports.
-It is encouraged to think of a process as a thread or coroutine by itself, so in order to prevent the problems FBP tries to solve, and if the platform supports it, dealing with threads inside a component is discouraged unless the nature of the task requires it.
-Nice to have features are the ability to "peek" if an inport has packets, or if an outport is going to get full, they are not necessary or available always but they deserve to mentioned. An use case for peek is load balancing, or avoiding complicated replication and routing of packets to create a reactive component. An example of this is a process that converts currency and peeks for a new ratio before every conversion.
+Ports are the points of contact between processes and connections. They are named, and may also be indexed if the port is an Array Port. The port name may be viewed as a contract between the component code and the network specification.  A Process can send to, and receive from, any of the ports.
+It is encouraged to think of a process as a thread or coroutine by itself, in order to prevent the problems FBP tries to solve;  if the platform supports it, dealing with threads inside a component is discouraged unless the nature of the task requires it.
+"Nice to have" features are the ability to "peek" if an input port's connection has packets, or if an output port's connection is going to get full; they are not necessary or available always but they deserve to be mentioned. A use case for peek is load balancing, or avoiding complicated replication and routing of packets to create a reactive component. An example of this might be a process that converts currency and peeks for a new ratio before every conversion.
 
 #### Input ports
 
 They provide a READ or RECEIVE functionality to dequeue messages from the buffer, and require an index in the case of Array Ports. Other features like obtaining the buffer load or which indexes have incoming packets in the case of array ports are desirable for simplifying the design and implementation of some components. An example of this would be an event handler than receives from an unknown amount of sources but they all provide the same type of data.
 
-In "classical" FBP, connections are one output port to one input port, considering each index of an array port as a single port. If a connection becomes empty, the process being fed by that connection is suspended until more packets arrive (in "classical" FBP, this can only be one process). In other words, when a process makes a READ on an empty port, it blocks the process until a packet arrives. This is valid for "classical" FBP, other implementations either wait for packets to activate events or have a collection of buffers the process can access.
+In "classical" FBP, connections connect one or more output ports to one input port, considering each index of an array port as a single port. If a connection becomes empty, the process being fed by that connection is suspended until more packets arrive (in "classical" FBP, this can only be one process). In other words, when a process makes a READ on an empty port, it blocks the process until a packet arrives. This is valid for "classical" FBP, while other implementations either wait for packets to activate events or have a collection of buffers the process can access.
+
+In "classical" FBP, when more than one output port is connected to an input ports, packets arrive at the input port in "first come, first served" sequence. 
 
 #### Output ports
 
