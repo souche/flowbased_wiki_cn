@@ -11,6 +11,7 @@ The goal of this project is to create a compact specification for Flow-based par
 5. [Classification](Classification)
 6. [Universal FBP communication protocol](Protocol)
 7. [Links](Links)
+8. [Authors](Authors)
 
 ## Other sources of documentation
 
