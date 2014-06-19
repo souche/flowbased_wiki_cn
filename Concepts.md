@@ -14,13 +14,15 @@ Processes communicate via connections, which the processes access by means of "p
 
 ### Ports
 
-Ports are the points of contact between processes and connections. They are named, and may also be indexed if the port is an Array Port. The port name may be viewed as a contract between the component code and the network specification.  A Process can send and receive from any of the ports but should restrict itself to only a read or write operation at the same time.
+Ports are the points of contact between processes and connections. They are named, and may also be indexed if the port is an Array Port. The port name may be viewed as a contract between the component code and the network specification.  A Process can send and receive from any of the ports.
+It is encouraged to think of a process as a thread or coroutine by itself, so in order to prevent the problems FBP tries to solve, and if the platform supports it, dealing with threads inside a component is discouraged unless the nature of the task requires it.
+Nice to have features are the ability to "peek" if an inport has packets, or if an outport is going to get full, they are not necessary or available always but they deserve to mentioned. An use case for peek is load balancing, or avoiding complicated replication and routing of packets to create a reactive component. An example of this is a process that converts currency and peeks for a new ratio before every conversion.
 
 #### Input ports
 
-They provide a READ or RECEIVE functionality to dequeue messages from the buffer, and require an index in the case of Array Ports. Other features like obtaining the buffer load or which indexes have incoming packets in the case of array ports are desirable for simplifying the design and implementation of some components. An example of this would be an event handler.
+They provide a READ or RECEIVE functionality to dequeue messages from the buffer, and require an index in the case of Array Ports. Other features like obtaining the buffer load or which indexes have incoming packets in the case of array ports are desirable for simplifying the design and implementation of some components. An example of this would be an event handler than receives from an unknown amount of sources but they all provide the same type of data.
 
-In "classical" FBP, connections correspond 1:1 to (non-IIP) input ports or input array port elements.  If a connection becomes empty, the process being fed by that connection is suspended until more data IPs arrive (in "classical" FBP, this can only be one process).
+In "classical" FBP, connections are one output port to one input port, considering each index of an array port as a single port. If a connection becomes empty, the process being fed by that connection is suspended until more packets arrive (in "classical" FBP, this can only be one process). In other words, when a process makes a READ on an empty port, it blocks the process until a packet arrives. This is valid for "classical" FBP, other implementations either wait for packets to activate events or have a collection of buffers the process can access.
 
 #### Output ports
 
@@ -33,13 +35,13 @@ A Process, being an instance of a Component, can hold its internal state as long
 
 ### Data processing
 
-In FBP data processing is focused on handling streams of packets and embedded sub streams. The common analogy is to think about a series of machines that communicate with conveyor belts, each with its own inputs and ouput ports. Designs should be oriented to data transformations and filtering. Since data between each process is buffered, asynchronous operation is achieved, freeing the developer from additional logic to handle it.
+In FBP data processing is focused on handling streams of packets and embedded sub streams. The common analogy is to think about a series of machines that communicate with conveyor belts, each with its own inputs and output ports. Designs should be oriented to data transformations and filtering. Since data between each process is buffered, asynchronous operation is achieved, freeing the developer from additional logic to handle it.
 Another interesting idea is that bypassing a process is trivial, and so is storing intermediate steps.
 
 ## Information packets
 
 Information packets are in constant debate, but at the end of the day it depends on the application domain. The general consensus is that the packet should carry data that is serializable and passive in its nature. Sending an instantiated Video Player in a packet is an example of what should not be done, and instead sending the individual frames would be the correct approach.
-The packet should contain a reusable data type, and depending on the implementation, allow for features like adding dictionary entries with other packets as values, attaching packets as siblings forming tree structures, ownership to stop other processes from altering a packet, schemas for validating dictionary entries, etc. 
+The packet should contain a reusable data type, and depending on the implementation, allow for features like adding dictionary entries with other packets as values, attaching packets as siblings forming tree structures, ownership to stop other processes from altering a packet, schema for validating packet data, etc. 
 
 ### Initial information packets
 In a Graph , each Process can have several Initial Information Packets that serve as configuration. They do not get pushed into a port until the process issues a RECEIVE or READ on that port. Think of them as passive packets.
@@ -52,9 +54,7 @@ IIPs should not activate a process, although some implementations do.
 
 ## Connections
 
-TODO: add description here
-
-### Capacity
+Connections are bounded buffers between ports, and their size is in number of packets. When they fill up the sending process doing the SEND blocks and when they are empty the receiving process doing a READ blocks.
 
 ### Merging
 
