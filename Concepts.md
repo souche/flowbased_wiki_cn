@@ -10,7 +10,7 @@ A Process is an instance of a Component living in a Graph. The system should han
 
 ### Connections
 
-Processes communicate via connections, which the processes access by means of "ports". In "classical" FBP, connections are implemented via bounded buffers. In NoFlo, and other "reactive" FBP implementations, connections can be thought of as having 0 capacity - in other words, data IPs are transferred immediately between the sending and receiving processes.
+Processes communicate via connections, which the processes access by means of Ports. Connections are usually implemented via bounded buffers or FIFO queues. The size of the buffer or the maximum number of packets a queue can hold is known as connection Capacity. Some FBP implementations allow connections with 0 capacity, meaning that data IPs are transferred immediately between the sending and receiving processes.
 
 ### Ports
 
