@@ -10,11 +10,11 @@ Common terms in the flow-based world and their explanation. Below each paragraph
 * **Graph** - structural representation of an application as a network of components and connections between them.
 * **Information packet** - a unit of data flow exchanged across components. _Syn.: message (OOP), record (RDMBS), tuple (Linda)._
 * **Initial information packet** - a Packet utilized as process configuration that comes to existence when a read is issued, not triggering the configured process. _Syn.: parameter (IDEF0)._
-* **Looper** - resident process.
+* **Looper** - A process that "loops" over ports through time, in other words a "long lived process".
 * **Nest** - a part of the flow graph with intensive internal communication which is attached to the same physical or virtual machine or OS thread/process for high efficiency and may have its own scheduler. Remote nests are connected via network into a distributed application graph. _Syn.: island, section._
 * **Net** - a running instance of **Graph**.
 * **Node** - a generic term for a process or a subnet in a graph that is not running yet.
-* **Non-looper** - a non-resident process which quits right after performing its task.
+* **Non-looper** - A short lived process that works like a subroutine, deactivating after completing its task.
 * **Port** - a connection point in a component through which it sends or receives data. Ports are one way, either OUT or IN.
 * **Process** - an instance of a component being executed in runtime. Each component may spawn one or several processes. _Syn.: object (OOP), filter (DSP)._
 * **Stream** - a sequence of information packets transmitted from one component to another. _Syn.: signal (DSP)._
