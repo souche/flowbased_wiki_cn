@@ -1,7 +1,7 @@
 Common terms in the flow-based world and their explanation. Below each paragraph represents a term. First it is given in bold as proposed by Morrison's book (if available), other versions are given in braces. Terms may link to articles with detailed description of principles behind them.
 
 * **Array Port** - a Port with indexed slots, reads and writes to Array Ports require an index.
-* **Bracket Information Packet** - a special Information Packet that indicates the presence of a Sub Stream. It can contain information itself and there are two kinds: opening brackets (denoting the start of a Substream) and closing brackets (denoting the end of a Substream). They can be nested as needed.
+* **Bracket Information Packet** - a special Information Packet that indicates the presence of a Substream. It can contain information itself and there are two kinds: opening brackets (denoting the start of a Substream) and closing brackets (denoting the end of a Substream). They can be nested as needed.
 * **Capacity** - max. number of information packets that can be buffered within a connection at a time.
 * **Component** - a black box processing data, a most common building block in FBP. _Syn.: class (OOP), processor (DSP)._
 * **Connection** - a connection between components through which data flows. _Syn.: pipe (POSIX), buffer (Protocol Buffers), message queue (AMQP), channel (CSP), line (DSP)._
