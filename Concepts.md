@@ -60,15 +60,24 @@ Connections are bounded buffers between ports, and their size is in number of pa
 
 ### Merging
 
-TODO: add description here
+When two or more ports need to be connected to a single input port some form of merging has to take place. Either with a Merge component with multiple inputs, that outputs through a single port, in order or arrival or in order of array port reading. Automatic merging can be also provided by the library.
+
+### Splitting
+
+When a single output port needs to be connected to multiple input ports , the packets need to be split like in a water flow, so in order to achieve this a component that splits packets is needed. It should create a copy of the packet and send it to each connected output. The runtime can provide this functionality without the need of an explicit component to do this and it comes down to preference. Morrison encourages the use of an explicit Split component.
 
 ## Graphs
 
-TODO: add description here
+Flow Based Programming uses Directed Graphs to represent the structure of the programs. Nodes are processes ( instances of a component ), and the edges are the connections between ports. 
+Outputs can only be connected to Inputs.
+A graph is built as a static view of the program , that is ran with the help of a library.
+Several tools are being built for editing graphs, and they can either be built via a visual tool like Draw FBP, NoFlo, or with textual Domain Specific Languages.
+A graph can be embedded in another graph as a process if it exposes external ports connected to its internal processes.
 
 ### External ports
 
-TODO: add description here
+When creating a graph that can be embedded in another graph the graph designer will expose external ports, and they will be input or output ports to provide connections to its internal processes.
+Creating new components from existing components is encouraged.
 
 ### Feedback loops
 
@@ -78,6 +87,7 @@ TODO: add description here
 
 This section covers aspects of how applications work in general.
 
-### Resident and non-resident processes
+### Process lifetime
 
-TODO: add description here (in the FBP book it is called "Loopers" and "Non-loopers")
+A process that has a long life is usually called a "Looper" because it loops through its input ports several times during its life, and tends to shutdown with the graph itself. On the other hand, processes that have a short life are used like subroutines, they perform a task and then deactivate, and they are called "Non Loopers".
+Making a distinction about what kind of component we are designing or implementing is important to avoid complex or resource intensive processes when not needed. For example a component that checks for new emails on an account could either behave like a Looper, checking e-mail every minute, or as a Non Looper simply checking for e-mail when requested.
