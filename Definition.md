@@ -18,7 +18,7 @@ FBP is often confused with Dataflow programming, but in fact it is a subset of D
  - Information packets have a life cycle and are owned explicitly by one process at a time.
  - Processes can be stateful.
  - Components can have multiple inputs or outputs.
- - Ports maybe elementary ports or array ports, where the individual elements are treated as separate ports, but are addressed by port name plus and index.
+ - Ports may be elementary ports or array ports, where the individual elements are treated as separate ports, but are addressed by port name plus and index.
  - The application is a graph rather than a tree. Cyclic connections (feedback loops) are allowed.
  - Connections can be merged in the graph, implicating that packets from different arcs arrive at the input port in FIFO order. Connections should be split explicitly via a component because of the variety of splitting strategies and the explicit IP ownership rule.
  - Connections are implemented as bounded buffers with FIFO order and capacity from 0 to a number limited by implementation.
