@@ -16,7 +16,7 @@ Common terms in the flow-based world and their explanation. Below each paragraph
 * **Node** - a generic term for a process or a subnet in a graph that is not running yet.
 * **Non-looper** - A short lived process that works like a subroutine, deactivating after completing its task.
 * **Port** - a connection point in a component through which it sends or receives data. Ports are one way, either OUT or IN.
-* **Process** - an instance of a component being executed in runtime. Each component may spawn one or several processes. _Syn.: object (OOP), filter (DSP)._
+* **Process** - an instance of a component being executed in runtime.  Multiple processes can share the same component code. _Syn.: object (OOP), filter (DSP)._
 * **Stream** - a sequence of information packets transmitted from one component to another. _Syn.: signal (DSP)._
 * **Subnet** - a graph that exposes inports and outports and is reused as a component itself. _Syn.: subgraph, composite component._
 * **Substream** - a stream nested within another (parent) stream and containing control (bracket) IPs.
