@@ -14,7 +14,16 @@ TODO: add description here
 
 ### Array ports
 
-TODO: add description here
+Ports that have indexes , and each index can be connected to a port. The user can read and write to independent indexes as will. Same rules apply as if it was a normal port for blocking.
+In pseudo-code, reading to the index 4 of port "IN" would be:
+
+`Packet p = read("IN", 4);`
+
+And a send would be:
+
+`send(p, "OUT",4);`
+
+The important idea is that the index of incoming and outgoing packets is known.
 
 ### Automatic ports
 
@@ -36,11 +45,12 @@ These are the features which affect application data and control flow in general
 
 ### Blocking sends and back pressure
 
-TODO: add description here
+When a connection is at full capacity, successive sends are blocked until the connection has room for more packets, effectively pausing the execution of the sending process. This stops a process from bringing the system down by exhausting the resources, and the upstream process will control indirectly how much data will be produced by the downstream process.
+
 
 ### Non-blocking sends
 
-TODO: add description here
+Non blocking sends can be useful for operations that require a continuous stream of "newest" data, like sensor readings, dropping the oldest packets and avoiding downstream process blocking.
 
 ### Pull-type processes
 
