@@ -19,6 +19,12 @@ In pseudo-code, reading to the index 4 of port "IN" would be:
 
 `Packet p = read("IN", 4);`
 
+or
+
+`Packet p = inports["IN"].read(4)`
+
+etc.
+
 And a send would be:
 
 `send(p, "OUT",4);`
