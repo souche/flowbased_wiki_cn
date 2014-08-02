@@ -62,13 +62,9 @@ Non blocking sends can be useful for operations that require a continuous stream
 
 TODO: add description here
 
-### Output backwards
-
-TODO: add description here
-
 ### Deadlock detection
 
-Some applications have built-in facilities to detect or prevent deadlocks.
+Some applications have built-in facilities to detect or prevent deadlocks between processes.
 
 ### Recursive graphs
 
