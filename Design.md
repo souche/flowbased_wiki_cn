@@ -4,7 +4,7 @@ This section will cover topics related to designing software with FBP.
 TODO
 
 ##Roles
-TODO
+Working with FBP in a team will lend itself to different roles, one will be graph design and system architecture, and the other will be component implementation and design. High level components like "Generate Report A" will be exploded into its sub components and so on. The roles are not fixed because from the perspective of a component implementer designing the inner workings of a component may require designing a graph, and so forth. The separation of concerns is very important because problems are easier to slice and less communication overhead will occur.
 
 ##Output Backwards
 This is a term that describes a possible sequence for deciding which processes in your high-level design to flesh out first.  “Output-backwards” means that you start with the outputs intended for human consumption, and work backwards deciding how this data is going to be generated. Some data will come from outside sources, using Readers or similar processes, but most will be the result of performing transforms on these sources. The designer will typically be moving from right to left across the network.
