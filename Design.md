@@ -1,7 +1,7 @@
 This section will cover topics related to designing software with FBP.
 
 ##Introduction
-TODO
+Designing systems with FBP opens different roads for software design and implementation, and this section will summarize them.
 
 ##Roles
 Working with FBP in a team will lend itself to different roles, one will be graph design and system architecture, and the other will be component implementation and design. High level components like "Generate Report A" will be exploded into its sub components and so on. The roles are not fixed because from the perspective of a component implementer designing the inner workings of a component may require designing a graph, and so forth. The separation of concerns is very important because problems are easier to slice and less communication overhead will occur.
