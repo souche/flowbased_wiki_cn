@@ -62,6 +62,8 @@ When a connection is at full capacity, successive sends are blocked until the co
 
 Non blocking sends can be useful for operations that require a continuous stream of "newest" data, like sensor readings, dropping the oldest packets and avoiding downstream process blocking.
 
+In JavaFBP and C#FBP, this is implemented by setting the attribute `dropOldest` to `true` in a particular connection in the network definition.
+
 ### Pull-type processes
 
 TODO: add description here
