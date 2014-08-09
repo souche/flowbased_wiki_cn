@@ -14,7 +14,7 @@ TODO: add description here
 
 ### Array ports
 
-Ports that have indexes , and each index can be connected to a port. The user can read and write to independent indexes as will. Same rules apply as if it was a normal port for blocking.
+Ports that have indices, and each index can be connected to a port. The user can read and write to independent indices at will. Same rules apply as if it was a normal port for blocking.
 In pseudo-code, reading to the index 4 of port "IN" would be:
 
 `Packet p = read("IN", 4);`
@@ -33,7 +33,11 @@ The important idea is that the index of incoming and outgoing packets is known.
 
 ### Automatic ports
 
-TODO: add description here
+Not all ports need to be known to the components they are attached to: sometimes it is desirable to be able to specify connections in the network which the processes themselves don’t know about. These are especially useful for introducing timing constraints into an application without having to add logic to the components involved, and handling various kinds of error condition. One such type of port is what we call "automatic ports", to reflect the idea that their functioning is not under the component’s control.
+
+There are two types of automatic ports: automatic input ports and automatic output ports.  The former acts as a delay: if an automatic input port is connected, process activation is delayed until an IP is received on that port, or until the port is closed. This assumes that no data has arrived at another input port.
+
+The latter sends a signal when a process closes down, which can be used to trigger (or delay) actions downstream.  In both the JavaFBP and C#FBP implementations, the signal is actually a `close`, so there is no IP to be disposed of.
 
 ## Graph features
 
