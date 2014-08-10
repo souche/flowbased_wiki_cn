@@ -5,7 +5,7 @@ Advanced features help simplifying common tasks or solving very specific problem
 ### Sub Streams
 
 The basic control flow mechanism is through connects and disconnects, but packets can be grouped inside a stream for different purposes. For example grouping request responses by the packet used for the request, passing lists of packets, building tree structures in a stream , etc.
-A group is denoted by **open** and **close** bracket information packets. They are the same as an information packet but they are tagged as brackets. For example if we have a component that makes requests to URLs sent to it, and then sends the responses, we can put responses inside a group with an open bracket whose data is the URL, the contents of the response, and then a close bracket whose data is the URL again.
+A group is denoted by **open** and **close** bracket information packets also called "control" packets. They are the same as an information packet but they are tagged as brackets. For example if we have a component that makes requests to URLs sent to it, and then sends the responses, we can put responses inside a group with an open bracket whose data is the URL, the contents of the response, and then a close bracket whose data is the URL again.
 To symbolize it we use the '<' and '>' symbols.
     
     < http://somewhere.com
