@@ -81,7 +81,13 @@ Creating new components from existing components is encouraged.
 
 ### Feedback loops
 
-TODO: add description here
+FBP differs from most visual application design notations in that it allows loop topologies in networks.  This can be useful for situations where the results of some process are fed back to serve as further input, e.g. some interactive applications, but also applications like bill of Materials Processing, where components are successively broken down to subcomponents, until a level is reached where no further breakdown is possible, at which point the breakdown results are removed from the loop.
+
+One other situation which might involve a loop is where a process is used in "subroutine mode" - i.e. the "caller" does a `send`/`receive`, and the "callee" does a `receive`/`send`.  This can be useful as it does not preclude the "callee" from being used in a "streaming" mode in other apps, or elsewhere in the same app. 
+
+This topology does introduce one additional complexity:  the FBP closedown rule states that a process closes down when all of its upstream processes have closed down.  However, in a loop topology all process are simultaneously upstream and downstream of all the others, so one process has to take responsibility for closing down the network - it must close its input ports, which results in the whole loop closing down shortly after.
+
+In FBP we normally do not allow an output port of a process to be connected to an input port of the same process, a the chances of deadlock are very high.  However, this could work theoretically if done very carefully... 
 
 ## Flow features
 
@@ -89,5 +95,5 @@ This section covers aspects of how applications work in general.
 
 ### Process lifetime
 
-A process that has a long life is usually called a "Looper" because it loops through its input ports several times during its life, and tends to shutdown with the graph itself. On the other hand, processes that have a short life are used like subroutines, they perform a task and then deactivate, and they are called "Non Loopers".
-Making a distinction about what kind of component we are designing or implementing is important to avoid complex or resource intensive processes when not needed. For example a component that checks for new emails on an account could either behave like a Looper, checking e-mail every minute and keeping a connection alive, or as a Non Looper simply checking for e-mail when requested and closing any connections after retrieving the messages.
+A process that has a long life is usually called a "looper" (not to be confused with "loop topologies", described above) because it loops through its input ports several times during its life, and tends to shutdown with the graph itself. On the other hand, processes that have a short life are used like subroutines, they perform a task and then deactivate, and they are called "non-loopers".
+Making a distinction about what kind of component we are designing or implementing is important to avoid complex or resource intensive processes when not needed. For example a component that checks for new emails on an account could either behave like a looper, checking e-mail every minute and keeping a connection alive, or as a non-looper simply checking for e-mail when requested and closing any connections after retrieving the messages.
