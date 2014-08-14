@@ -81,7 +81,7 @@ Creating new components from existing components is encouraged.
 
 ### Feedback loops
 
-FBP differs from most visual application design notations in that it allows loop topologies in networks.  This can be useful for situations where the results of some process are fed back to serve as further input, e.g. some interactive applications, but also applications like bill of Materials Processing, where components are successively broken down to subcomponents, until a level is reached where no further breakdown is possible, at which point the breakdown results are removed from the loop.
+FBP allows loop topologies in networks.  This can be useful for situations where the results of some process are fed back to serve as further input, e.g. some interactive applications, but also applications like bill of Materials Processing, where components are successively broken down to subcomponents, until a level is reached where no further breakdown is possible, at which point the breakdown results are removed from the loop.
 
 One other situation which might involve a loop is where a process is used in "subroutine mode" - i.e. the "caller" does a `send`/`receive`, and the "callee" does a `receive`/`send`.  This can be useful as it does not preclude the "callee" from being used in a "streaming" mode in other apps, or elsewhere in the same app. 
 
