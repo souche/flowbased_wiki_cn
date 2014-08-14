@@ -85,7 +85,7 @@ FBP allows loop topologies in networks.  This can be useful for situations where
 
 One other situation which might involve a loop is where a process is used in "subroutine mode" - i.e. the "caller" does a `send`/`receive`, and the "callee" does a `receive`/`send`.  This can be useful as it does not preclude the "callee" from being used in a "streaming" mode in other apps, or elsewhere in the same app. 
 
-This topology does introduce one additional complexity:  the FBP closedown rule states that a process closes down when all of its upstream processes have closed down.  However, in a loop topology all process are simultaneously upstream and downstream of all the others, so one process has to take responsibility for closing down the network - it must close its input ports, which results in the whole loop closing down shortly after.
+This topology does introduce one additional complexity:  the FBP closedown rule states that a process closes down when all of its upstream processes have closed down.  However, in a loop topology all processes are "upstream" of all the others, so at least one process has to take responsibility for closing down the network - the standard technique is for it to close its input ports and terminate, which then results in the rest of the loop closing down.
 
 In FBP we normally do not allow an output port of a process to be connected to an input port of the same process, a the chances of deadlock are very high.  However, this could work theoretically if done very carefully... 
 
