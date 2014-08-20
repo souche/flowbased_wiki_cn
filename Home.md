@@ -11,7 +11,7 @@ The goal of this project is to create a compact specification for Flow-based par
 5. [Design](Design)
 6. [DSL](FBP DSL)
 7. [Classification](Classification)
-8. [Universal FBP communication protocol](Protocol)
+8. [FBP communication protocol](Protocol)
 9. [Links](Links)
 10. [Authors](Authors)
 
