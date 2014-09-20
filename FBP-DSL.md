@@ -22,7 +22,7 @@ Subsequent uses of a process do not require specifying the package and component
 
 Array ports:
 
-    Splitter(core/Split) OUT [1] -> IN [0] WriteLog(filesystem/WriteText)
+    Splitter(core/Split) OUT[1] -> IN[0] WriteLog(filesystem/WriteText)
 
 Brackets with an integer next to a port name denote its index for the connection.
 The javascript implementation of the parser assumes order of declaration as the index automatically, but this is not a characteristic of the DSL.
