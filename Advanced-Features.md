@@ -44,7 +44,7 @@ etc.
 
 And a send would be:
 
-`send(p, "OUT",4);`
+`send(p, "OUT", 4);`
 
 The important idea is that the index of incoming and outgoing packets is known.
 
