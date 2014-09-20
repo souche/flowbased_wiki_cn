@@ -20,6 +20,7 @@ Connections can be chained together too.
 Subsequent uses of a process do not require specifying the package and component name again.
 
 Array ports:
+
    Splitter(core/Split) OUT [1] -> IN [0] WriteLog(filesystem/WriteText)
 
 Brackets with an integer next to a port name denote its index for the connection.
