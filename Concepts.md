@@ -81,7 +81,7 @@ Creating new components from existing components is encouraged.
 
 ### Subroutines
 
-When a process sends data and immediatly starts reading from a port, we have the equivalent of a subroutine call. Ideally there would be no shared state between the "caller" and the "callee", as the information packet was sent to it. A graph can be degenerated into a synchronous program this way.
+When a process sends data and immediately starts reading from a port, we have the equivalent of a subroutine call. Ideally there would be no shared state between the "caller" and the "callee", as the information packet was sent to it. A graph can be degenerated into a synchronous program this way.
 
 ### Feedback loops
 
