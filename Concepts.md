@@ -79,6 +79,10 @@ A graph can be embedded in another graph as a process if it exposes external por
 When creating a graph that can be embedded in another graph the graph designer will expose external ports, and they will be input or output ports to provide connections to its internal processes.
 Creating new components from existing components is encouraged.
 
+### Subroutines
+
+When a process sends data and immediatly starts reading from a port, we have the equivalent of a subroutine call. Ideally there would be no shared state between the "caller" and the "callee", as the information packet was sent to it. A graph can be degenerated into a synchronous program this way.
+
 ### Feedback loops
 
 FBP allows loop topologies in networks.  This can be useful for situations where the results of some process are fed back to serve as further input, e.g. some interactive applications, but also applications like bill of Materials Processing, where components are successively broken down to subcomponents, until a level is reached where no further breakdown is possible, at which point the breakdown results are removed from the loop.
