@@ -29,5 +29,5 @@ The javascript implementation of the parser assumes order of declaration as the 
 
 Connections can be chained like this :
 
-    'rawdata.txt' -> IN Read() OUT -> IN Compute() OUT -> IN Alter() OUT -> IN Report()
+    'rawdata.txt' -> IN Read() OUT -> IN Compute() OUT -> IN Alter() OUT -> RESULTS Report()
 
