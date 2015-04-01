@@ -24,3 +24,4 @@ The goal of this project is to create a compact specification for Flow-based par
 * [Google Group / Mailing list](http://groups.google.com/group/flow-based-programming)
 * [NoFlo documentation](http://noflojs.org/documentation)
 * [Wikipedia](http://en.wikipedia.org/wiki/Flow-based_programming)
+* [Ioflo documentation](https://github.com/ioflo/ioflo_manuals)
