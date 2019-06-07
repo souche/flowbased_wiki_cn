@@ -16,55 +16,55 @@ Processes communicate via connections, which the processes access by means of Po
 
 Ports are the points of contact between processes and connections. They are named, and may also be indexed if the port is an Array Port. The port name may be viewed as a contract between the component code and the network specification.  A Process can send to, and receive from, any of the ports.
 It is encouraged to think of a process as a thread or coroutine by itself, in order to prevent the problems FBP tries to solve;  if the platform supports it, dealing with threads inside a component is discouraged unless the nature of the task requires it.
-"Nice to have" features are the ability to "peek" if an input port's connection has packets, or if an output port's connection is going to get full; they are not necessary or available always but they deserve to be mentioned. A use case for peek is load balancing, or avoiding complicated replication and routing of packets to create a reactive component. An example of this might be a process that converts currency and peeks for a new ratio before every conversion.
+"Nice to have" features are the ability to "peek" if an input port's connection has packets, or if an output port's connection is going to get full; they are not necessary or available always, but they deserve to be mentioned. A use case for peek is load balancing, or avoiding complicated replication and routing of packets to create a reactive component. An example of this might be a process that converts currency and peeks for a new ratio before every conversion.
 
 #### Input ports
 
-They provide a READ or RECEIVE functionality to dequeue messages from the buffer, and require an index in the case of Array Ports. Other features like obtaining the buffer load or which indexes have incoming packets in the case of array ports are desirable for simplifying the design and implementation of some components. An example of this would be an event handler than receives from an unknown amount of sources but they all provide the same type of data.
+They provide a READ or RECEIVE functionality to dequeue messages from the buffer, and require an index in the case of Array Ports. Other features like obtaining the buffer load, or which indexes have incoming packets in the case of array ports, can simplify the design and implementation of some components. An example of this would be an event handler that receives from an unknown amount of sources that all provide the same type of data.
 
-In "classical" FBP, connections connect one or more output ports to one input port, considering each index of an array port as a single port. If a connection becomes empty, the process being fed by that connection is suspended until more packets arrive (in "classical" FBP, this can only be one process). In other words, when a process makes a READ on an empty port, it blocks the process until a packet arrives. This is valid for "classical" FBP, while other implementations either wait for packets to activate events or have a collection of buffers the process can access.
+In "classical" FBP, connections connect one or more output ports to one input port, considering each index of an array port as a single port. If a connection becomes empty, the process being fed by that connection is suspended until more packets arrive (in "classical" FBP, this can only be one process). In other words, when a process makes a READ on an empty port, it blocks the process until a packet arrives. This is valid for "classical" FBP, while other implementations either wait for packets to activate events, or have a collection of buffers that the process can access.
 
-In "classical" FBP, when more than one output port is connected to an input ports, packets arrive at the input port in "first come, first served" sequence. 
+In "classical" FBP, when more than one output port is connected to an input port, packets arrive at the input port in "first come, first served" sequence. 
 
 #### Output ports
 
-They provide a SEND functionality to queue the packet into the port of the connected process. Usually sends require a packet and the name of the port, or the send is a method and the output port is a known object.
+They provide a SEND functionality to queue the packet into the port of the connected process. Usually, sends require a packet and the name of the port, or the send is a method and the output port is a known object.
 If the connection fills up with packets, the process is suspended until the buffer is not full.
 
 ### Internal state
 
-A Process, being an instance of a Component, can hold its internal state as long as it's active. An important part of FBP is keeping the state private and only interacting via port actions with other processes.
+A Process, being an instance of a Component, can hold its internal state as long as it's active. An important part of FBP is keeping the state private and only interacting with other processes via port actions.
 
 ### Data processing
 
-In FBP data processing is focused on handling streams of packets and embedded sub streams. The common analogy is to think about a series of machines that communicate with conveyor belts, each with its own inputs and output ports. Designs should be oriented to data transformations and filtering. Since data between each process is buffered, asynchronous operation is achieved, freeing the developer from additional logic to handle it.
+In FBP data processing is focused on handling streams of packets and embedded sub streams. The common analogy is to imagine a series of machines that communicate with conveyor belts, each with its own inputs and outputs. Designs should be oriented to data transformations and filtering. Since data between each process is buffered, asynchronous operation is achieved, freeing the developer from additional logic to handle it.
 Another interesting idea is that bypassing a process is trivial, and so is storing intermediate steps.
 
 ## Information packets
 
-Information packets are in constant debate, but at the end of the day it depends on the application domain. The general consensus is that the packet should carry data that is serializable and passive in its nature. Sending an instantiated Video Player in a packet is an example of what should not be done, and instead sending the individual frames would be the correct approach.
+Information packets are in constant debate, but at the end of the day it depends on the application domain. The general consensus is that the packet should carry data that is serializable and passive in its nature. Sending an instantiated Video Player in a packet is an example of what should not be done: instead, sending the individual frames would be the correct approach.
 The packet should contain a reusable data type, and depending on the implementation, allow for features like adding dictionary entries with other packets as values, attaching packets as siblings forming tree structures, ownership to stop other processes from altering a packet, schema for validating packet data, etc. 
 
 ### Initial information packets
-In a Graph , each Process can have several Initial Information Packets that serve as configuration. They do not get pushed into a port until the process issues a RECEIVE or READ on that port. Think of them as passive packets.
+In a Graph, each Process can have several Initial Information Packets that serve as configuration. They do not get pushed into a port until the process issues a RECEIVE or READ on that port. Think of them as passive packets.
 
 ### Activation
 
-A Process is activated when it has incoming packets on its input ports, an exception of this would be a Start component in some implementations that is designed to be started on Graph activation and it forwards the IIPs attached to it.
+A Process is activated when it has incoming packets on its input ports. An exception to this would be a Start component, which is used in some implementations. On Graph activation, this Start process provides the values of its IIPs to the other connected components.
 IIPs should not activate a process, although some implementations do.
 
 
 ## Connections
 
-Connections are bounded buffers between ports, and their size is in number of packets. When they fill up the sending process doing the SEND blocks and when they are empty the receiving process doing a READ blocks.
+Connections are bounded buffers between ports, and their size is in number of packets. When they fill up, the process doing the SEND is blocked, and when they are empty the process doing a READ is blocked.
 
 ### Merging
 
-When two or more ports need to be connected to a single input port some form of merging has to take place. Either with a Merge component with multiple inputs, that outputs through a single port, in order or arrival or in order of array port reading. Automatic merging can be also provided by the library.
+When two or more ports need to be connected to a single input port on a process, some form of merging has to take place. A Merge process (with multiple inputs) could be added, to send information packets in order of arrival on to the single input port: or the single input port on the receiving process could be replaced by an array port. Automatic merging could also be provided by the library.
 
 ### Splitting
 
-When a single output port needs to be connected to multiple input ports , the packets need to be split like in a water flow, so in order to achieve this a component that splits packets is needed. It should create a copy of the packet and send it to each connected output. The runtime can provide this functionality without the need of an explicit component to do this and it comes down to preference. Morrison encourages the use of an explicit Split component.
+When a single output port needs to be connected to multiple input ports, the packets need to be split like in a water flow, so in order to achieve this a component that splits packets is needed. It should create a copy of the packet and send it to each connected output. The runtime can provide this functionality without the need of an explicit component to do this and it comes down to preference. Morrison encourages the use of an explicit Split component.
 
 ## Graphs
 
