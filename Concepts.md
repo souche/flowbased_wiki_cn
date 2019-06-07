@@ -16,7 +16,7 @@ Processes communicate via connections, which the processes access by means of Po
 
 Ports are the points of contact between processes and connections. They are named, and may also be indexed if the port is an Array Port. The port name may be viewed as a contract between the component code and the network specification.  A Process can send to, and receive from, any of the ports.
 It is encouraged to think of a process as a thread or coroutine by itself, in order to prevent the problems FBP tries to solve;  if the platform supports it, dealing with threads inside a component is discouraged unless the nature of the task requires it.
-"Nice to have" features are the ability to "peek" if an input port's connection has packets, or if an output port's connection is going to get full; they are not necessary or available always, but they deserve to be mentioned. A use case for peek is load balancing, or avoiding complicated replication and routing of packets to create a reactive component. An example of this might be a process that converts currency and peeks for a new ratio before every conversion.
+"Nice to have" features are the ability to "peek", and see if an input port's connection has packets, or if an output port's connection is going to get full; they are not necessary or available always, but they deserve to be mentioned. A use case for peek is load balancing, or avoiding complicated replication and routing of packets to create a reactive component. An example of this might be a process that converts currency and peeks for a new ratio before every conversion.
 
 #### Input ports
 
@@ -37,12 +37,12 @@ A Process, being an instance of a Component, can hold its internal state as long
 
 ### Data processing
 
-In FBP data processing is focused on handling streams of packets and embedded sub streams. The common analogy is to imagine a series of machines that communicate with conveyor belts, each with its own inputs and outputs. Designs should be oriented to data transformations and filtering. Since data between each process is buffered, asynchronous operation is achieved, freeing the developer from additional logic to handle it.
+In FBP, data processing is focused on handling streams of packets and embedded sub-streams. The common analogy is to imagine a series of machines that communicate with conveyor belts, each with its own inputs and outputs. Designs should be oriented to data transformations and filtering. Since data between each process is buffered, asynchronous operation is achieved, freeing the developer from additional logic to handle it.
 Another interesting idea is that bypassing a process is trivial, and so is storing intermediate steps.
 
 ## Information packets
 
-Information packets are in constant debate, but at the end of the day it depends on the application domain. The general consensus is that the packet should carry data that is serializable and passive in its nature. Sending an instantiated Video Player in a packet is an example of what should not be done: instead, sending the individual frames would be the correct approach.
+Information packets are in constant debate, but at the end of the day it depends on the application domain. The general consensus is that the packet should carry data that is serializable and passive in its nature. Sending an instantiated Video Player in a packet is an example of what should not be done: instead, sending the individual frames may be a suitable approach.
 The packet should contain a reusable data type, and depending on the implementation, allow for features like adding dictionary entries with other packets as values, attaching packets as siblings forming tree structures, ownership to stop other processes from altering a packet, schema for validating packet data, etc. 
 
 ### Initial information packets
