@@ -11,7 +11,7 @@
 该项目的目的是为 Flow-based 的范式及其术语创建一个简洁的规范，帮助 FBP 研究人员更有效地进行交流，并为入门者快速了解 flow-based。
 
 ## 目录
-1. [Flow-based programming 的定义](Definition)
+1. [Flow-based programming 的定义（完成）](Definition)
 2. [术语](Terminology)
 3. [基本概念](Concepts)
 4. [高级功能](Advanced-Features)
