@@ -30,3 +30,7 @@
 * [NoFlo 文档](http://noflojs.org/documentation)
 * [维基百科](http://en.wikipedia.org/wiki/Flow-based_programming)
 * [Ioflo 文档](https://github.com/ioflo/ioflo_manuals)
+
+## 兴趣小组
+
+![](https://img.souche.com/test/da961a61cf49f231501d64602cccb964.JPG)
