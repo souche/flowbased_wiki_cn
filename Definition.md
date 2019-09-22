@@ -1,20 +1,20 @@
-**Flow-based programming (FBP)** is a [Dataflow programming](http://en.wikipedia.org/wiki/Dataflow_programming) paradigm with a unique set of characteristics on one hand and a kind of [Component-based software engineering](http://en.wikipedia.org/wiki/Component-based_software_engineering) approach on the other hand. It was created by [J Paul Morrison](http://www.jpaulmorrison.com/) while working for IBM in 1970s.
+> **Flow-based programming (FBP)** is a [Dataflow programming](http://en.wikipedia.org/wiki/Dataflow_programming) paradigm with a unique set of characteristics on one hand and a kind of [Component-based software engineering](http://en.wikipedia.org/wiki/Component-based_software_engineering) approach on the other hand. It was created by [J Paul Morrison](http://www.jpaulmorrison.com/) while working for IBM in 1970s.
 
 **Flow-based programming (FBP)** 是一种 [Dataflow programming](http://en.wikipedia.org/wiki/Dataflow_programming) 范例，一方面具有独特的特征集，另一方面具有[Component-based software engineering](http://en.wikipedia.org/wiki/Component-based_software_engineering) 的特征。
 
-Flow-based programming considers an application as a set of processes ("black boxes") communicating via connections, which the processes access by means of "ports". A process is an instance of a component, running concurrently with other processes, including potentially other instances of the same component. The representation is a directed graph consisting of processes as nodes and connections as edges. For application developers, components will normally be treated as black boxes, but they can be whiteboxed if the developer needs to create a new component (usually done using a conventional, textual, programming language), or if the component is implemented as a subgraph.  In the latter case, the user can move between different levels of the graph. 
+> Flow-based programming considers an application as a set of processes ("black boxes") communicating via connections, which the processes access by means of "ports". A process is an instance of a component, running concurrently with other processes, including potentially other instances of the same component. The representation is a directed graph consisting of processes as nodes and connections as edges. For application developers, components will normally be treated as black boxes, but they can be whiteboxed if the developer needs to create a new component (usually done using a conventional, textual, programming language), or if the component is implemented as a subgraph.  In the latter case, the user can move between different levels of the graph. 
 
 Flow-based programming 将应用程序视为通过连接（connections）进行通信的一组进程（“黑匣子”），这些进程通过“端口（ports）”进行访问。 进程是组件（component）的一个实例，与其他进程（包括同一组件的其他潜在实例）同时运行。 具体的表现就是由进程表示节点，由连接表示流动。 对于应用程序开发人员，组件通常将被视为黑盒，但是如果开发人员需要创建新组件（通常使用常规的文本编程语言来完成），或者如果组件被实现为子视图，则可以将其白盒化。 在后一种情况下，用户可以在图表的不同层级之间移动。
 
-The general approach in FBP is to conceptualize a program as a series of streams and substreams that flow through a series of connected processes. Parallelism and concurrency are enabled by restricting communication between processes to use streams of Information Packets ("passive" data) - shared memory problems are avoided by the rule that an Information Packet may only be "owned" (directly or indirectly) by a single process at a time.
+> The general approach in FBP is to conceptualize a program as a series of streams and substreams that flow through a series of connected processes. Parallelism and concurrency are enabled by restricting communication between processes to use streams of Information Packets ("passive" data) - shared memory problems are avoided by the rule that an Information Packet may only be "owned" (directly or indirectly) by a single process at a time.
 
 FBP 中的一般方法是将程序概念化为流经一系列连接过程的一系列流和子流。 通过限制进程之间的通信以使用信息包流（“被动”数据）来启用并行性和并发性-通过规则，即信息包一次只能由单个进程“拥有”（直接或间接）来避免共享内存问题。
 
-Visual programming in this context is about connecting textual components and/or graphs in a bi-dimensional representation, which takes advantage of humans' pattern recognition abilities and visual styles of thinking. Textual programming is still available at the component level, and, for simple applications, at the network level.
+> Visual programming in this context is about connecting textual components and/or graphs in a bi-dimensional representation, which takes advantage of humans' pattern recognition abilities and visual styles of thinking. Textual programming is still available at the component level, and, for simple applications, at the network level.
 
 在这种情况下，可视化编程是以一种二维的文本组件或者图形连接的表现形式，它利用了人类的模式识别能力和视觉思维方式。对于简单的网络级别的应用程序，或者组件级别，文本编程仍然可用。
 
-The main motivators are code reuse, testability, concurrency and maintainability.
+> The main motivators are code reuse, testability, concurrency and maintainability.
 
 它主要的意义是代码重用、可测试性、并发性和可维护性。
 
