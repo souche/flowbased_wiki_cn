@@ -11,16 +11,16 @@
 该项目的目的是为 Flow-based 的范式及其术语创建一个简洁的规范，帮助 FBP 研究人员更有效地进行交流，并为入门者快速了解 flow-based。
 
 ## 目录
-1. [Flow-based programming 的定义（完成）](Definition)
-2. [术语](Terminology)
-3. [基本概念](Concepts)
-4. [高级功能](Advanced-Features)
-5. [设计](Design)
-6. [DSL](FBP-DSL)
-7. [分类](Classification)
-8. [FBP 通信协议](Protocol)
-9. [链接](Links)
-10. [作者](Authors)
+1. [Flow-based programming 的定义（完成）](Definition.md)
+2. [术语](Terminology.md)
+3. [基本概念](Concepts.md)
+4. [高级功能](Advanced-Features.md)
+5. [设计](Design.md)
+6. [DSL](FBP-DSL.md)
+7. [分类](Classification.md)
+8. [FBP 通信协议](Protocol.md)
+9. [链接](Links.md)
+10. [作者](Authors.md)
 
 ## 其他文档资源
 
