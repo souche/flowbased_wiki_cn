@@ -33,4 +33,4 @@
 
 ## 兴趣小组
 
-![](https://img.souche.com/test/da961a61cf49f231501d64602cccb964.JPG)
+![](./wechat+group.JPG)
