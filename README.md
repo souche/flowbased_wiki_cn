@@ -33,4 +33,4 @@
 
 ## 兴趣小组
 
-![](./resource/wechat_group.png)
+<img src="./resource/wechat_group.png" height="300"/>
