@@ -33,4 +33,4 @@
 
 ## 兴趣小组
 
-![](./wechat_group.png)
+![](./resource/wechat_group.png)
