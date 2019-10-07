@@ -20,11 +20,11 @@
 
 > High level components like "Generate Report A" will be exploded into its sub components and so on.The roles are not fixed because from the perspective of a component implementer designing the inner workings of a component may require designing a graph, and so forth. 
 
-在一些由分解成它的子组件组件的高级组件里，比如像 “生成报表A” 等组件。角色的划分就并不完全固定，因为，从一个组件实现者的角度来看，组件内部的运作，可能需要可视化设计等工作。
+在一些由分解成它的子组件组件的高级组件里，比如像 “生成报表A” 等组件。角色的划分就并不完全固定，因为，从一个组件实现者的角度来看，组件内部的运作，可能需要可视化设计等工作。
 
 > The separation of concerns is very important because problems are easier to slice and less communication overhead will occur.
 
-这种关注度的分离，是十分重要的。因为问题将会更容易被分解，需要的交流也更少。
+这种关注度的分离，是十分重要的。因为问题将会更容易被分解，需要的交流也将更少。
 
 > ## Output Backwards
 ## 输出逆推
@@ -32,7 +32,7 @@
 > This is a term that describes a possible sequence for deciding which processes in your high-level design to flesh out first.  “Output-backwards” means that you start with the outputs intended for human consumption, and work backwards deciding how this data is going to be generated.
 
 这是描述在你的高阶组件设计过程中，为了决定出哪一部分先实现出来的一个合理顺序的术语。
-“Output-backwards” 意味着，你将需要先从人们所消费的输出（考虑），并反向去思考决定数据应该怎么被生产出来。
+“Output-backwards” 意味着，你将需要先从人们所消费的输出（考虑），并反向去思考决定数据应该怎么被生产出来。
 
 > Some data will come from outside sources, using Readers or similar processes, but most will be the result of performing transforms on these sources. The designer will typically be moving from right to left across the network.
 
