@@ -20,11 +20,9 @@ Examples are NoFlo and microflo.
 ## "Litmus test"
 > To differentiate the flavor of FBP you are dealing with, ask yourself if selective reads are present. Can you express your data requirements for an operation as a sequence of reads or do you have to encode a state machine that feeds on events?
 
-In this trivial example we create a component that reads two numbers from two ports and sends the greater of them through the GT port and the lesser through LT.
+> In this trivial example we create a component that reads two numbers from two ports and sends the greater of them through the GT port and the lesser through LT.
 
 为了区分你正在处理的FBP的味道，问问自己是否存在选择性阅读。您是否可以将操作的数据需求表示为一个读取序列，或者您是否必须对以事件为源的状态机进行编码？
-
-In this trivial example we create a component that reads two numbers from two ports and sends the greater of them through the GT port and the lesser through LT.
 
 在这个简单的示例中，我们创建了一个组件，它从两个端口读取两个数字，并通过gt端口发送其中较大的数字，通过lt发送较小的数字。
 
